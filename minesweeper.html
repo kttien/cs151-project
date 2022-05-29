@@ -384,7 +384,7 @@
 click(mark(M,N)) :: cell(M, N, blank) ==> cell(M, N, numberSurroundingMines(M, N)) & ~cell(M, N, blank) & clearAdjacent(M, N)
 click(mark(M,N)) :: cell(M, N, mine) ==> exploded & cell(M, N, clickedMine)
 
-
+legal(M,N) :: cell(M,N,blank) or cell(M,N,mine)
 
 terminal :- exploded
 terminal :- ~open
