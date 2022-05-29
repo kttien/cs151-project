@@ -1,0 +1,432 @@
+<html>
+  <!--=======================================================================-->
+
+  <head>
+    <title>Tic Tac Toe</title>
+    <script type="text/javascript" src="/epilog/javascript/epilog.js"></script>
+    <script
+      type="text/javascript"
+      src="/worksheets/javascript/worksheets.js"
+    ></script>
+    <script type="text/javascript">
+      function getwritetime(folder, dataset) {
+        return localStorage["time"] || 0;
+      }
+
+      function getdata(folder, dataset) {
+        console.log("getdata");
+        console.log(dataset);
+        console.log(localStorage[dataset]);
+        return readdata(localStorage[dataset]);
+      }
+
+      function putdata(folder, dataset, data) {
+        console.log("putdata");
+        console.log(dataset);
+        console.log(grindem(data));
+        localStorage[dataset] = grindem(data);
+        localStorage["time"] = timestamp();
+        return localStorage["time"];
+      }
+    </script>
+  </head>
+
+  <!--=======================================================================-->
+
+  <body
+    leftmargin="0"
+    topmargin="0"
+    marginwidth="0"
+    marginheight="0"
+    bgcolor="#f4f6f8"
+    onload="initialize()"
+  >
+    <center>
+      <table width="640" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td width="640" height="90" align="center">
+            <span
+              style="
+                font-size: 48px;
+                color: #000088;
+                cursor: pointer;
+                width: 100%;
+              "
+              >Tic Tac Toe</span
+            >
+          </td>
+        </tr>
+      </table>
+    </center>
+
+    <!--=======================================================================-->
+
+    <center>
+      <br />
+      <span style="font-size: 18px; color: #666666"
+        >Click in a clear square<br />
+        to mark that square.</span
+      >
+      <table bgcolor="#ffffff" cellspacing="0" border="10">
+        <tr>
+          <td
+            id="mark(1,1)"
+            width="60"
+            height="60"
+            align="center"
+            valign="center"
+            style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+            onclick="modbutton(this)"
+          >
+            &nbsp;
+          </td>
+          <td
+            id="mark(1,2)"
+            width="60"
+            height="60"
+            align="center"
+            valign="center"
+            style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+            onclick="modbutton(this)"
+          >
+            &nbsp;
+          </td>
+          <td
+            id="mark(1,3)"
+            width="60"
+            height="60"
+            align="center"
+            valign="center"
+            style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+            onclick="modbutton(this)"
+          >
+            &nbsp;
+          </td>
+        </tr>
+        <tr>
+          <td
+            id="mark(2,1)"
+            width="60"
+            height="60"
+            align="center"
+            valign="center"
+            style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+            onclick="modbutton(this)"
+          >
+            &nbsp;
+          </td>
+          <td
+            id="mark(2,2)"
+            width="60"
+            height="60"
+            align="center"
+            valign="center"
+            style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+            onclick="modbutton(this)"
+          >
+            &nbsp;
+          </td>
+          <td
+            id="mark(2,3)"
+            width="60"
+            height="60"
+            align="center"
+            valign="center"
+            style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+            onclick="modbutton(this)"
+          >
+            &nbsp;
+          </td>
+        </tr>
+        <tr>
+          <td
+            id="mark(3,1)"
+            width="60"
+            height="60"
+            align="center"
+            valign="center"
+            style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+            onclick="modbutton(this)"
+          >
+            &nbsp;
+          </td>
+          <td
+            id="mark(3,2)"
+            width="60"
+            height="60"
+            align="center"
+            valign="center"
+            style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+            onclick="modbutton(this)"
+          >
+            &nbsp;
+          </td>
+          <td
+            id="mark(3,3)"
+            width="60"
+            height="60"
+            align="center"
+            valign="center"
+            style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+            onclick="modbutton(this)"
+          >
+            &nbsp;
+          </td>
+        </tr>
+      </table>
+      Player:
+      <span id="control" style="font-size: 18px; color: #666666">x</span>
+    </center>
+
+    <br />
+    <br />
+
+    <center>
+      <table
+        id="rewards"
+        width="300"
+        style="display: none"
+        cellspacing="0"
+        cellpadding="4"
+        border="1"
+      >
+        <tr>
+          <td
+            width="50%"
+            align="center"
+            style="font-weight: bold"
+            bgcolor="#dddddd"
+          >
+            white
+          </td>
+          <td
+            width="50%"
+            align="center"
+            style="font-weight: bold"
+            bgcolor="#dddddd"
+          >
+            black
+          </td>
+        </tr>
+        <tr>
+          <td id="whitereward" width="50%" align="center">0</td>
+          <td id="blackreward" width="50%" align="center">0</td>
+        </tr>
+      </table>
+    </center>
+
+    <!--=======================================================================-->
+
+    <textarea id="lambda" type="text/hrf" style="display: none">
+        role(player)
+
+        <!-- columns left to right (M)-->
+        file(a)
+        file(b)
+        file(c)
+        file(d)
+        file(e)
+        file(f)
+        file(g)
+        file(h)
+        file(i)
+
+        <!-- rows bottom to top (N)-->
+        rank(1)
+        rank(2)
+        rank(3)
+        rank(4)
+        rank(5)
+        rank(6)
+        rank(7)
+        rank(8)
+        rank(9)
+
+        succ(1,2)
+        succ(2,3)
+        succ(3,4)
+        succ(4,5)
+        succ(5,6)
+        succ(6,7)
+        succ(7,8)
+        succ(8,9)
+        succ(a,b)
+        succ(b,c)
+        succ(c,d)
+        succ(d,e)
+        succ(e,f)
+        succ(f,g)
+        succ(g,h)
+        succ(h,i)
+
+        <!-- Cell syntax: cell(<column>, <row>, <contents>) -->
+        <!-- Possible contents of cell:
+            - "mine", "blank" are unclicked, so should be rendered the same
+            - numberSurroundingMines for clicked blank, so should render the number
+            - "clickedMine" for clicked mine, so should render a mine -->
+        <!-- blank cells (all cells with mine cells deleted)-->
+        cell(b, 1, blank)
+        cell(c, 1, blank)
+        cell(d, 1, blank)
+        cell(e, 1, blank)
+        cell(f, 1, blank)
+        cell(g, 1, blank)
+        cell(h, 1, blank)
+        cell(i, 1, blank)
+        cell(a, 2, blank)
+
+        cell(c, 2, blank)
+        cell(d, 2, blank)
+        cell(e, 2, blank)
+        cell(f, 2, blank)
+        cell(g, 2, blank)
+        cell(h, 2, blank)
+        cell(i, 2, blank)
+        cell(a, 3, blank)
+        cell(b, 3, blank)
+
+        cell(d, 3, blank)
+        cell(e, 3, blank)
+        cell(f, 3, blank)
+        cell(g, 3, blank)
+        cell(h, 3, blank)
+        cell(i, 3, blank)
+        cell(a, 4, blank)
+        cell(b, 4, blank)
+        cell(c, 4, blank)
+
+        cell(e, 4, blank)
+        cell(f, 4, blank)
+        cell(g, 4, blank)
+        cell(h, 4, blank)
+        cell(i, 4, blank)
+        cell(a, 5, blank)
+        cell(b, 5, blank)
+        cell(c, 5, blank)
+        cell(d, 5, blank)
+
+        cell(f, 5, blank)
+        cell(g, 5, blank)
+        cell(h, 5, blank)
+        cell(i, 5, blank)
+        cell(a, 6, blank)
+        cell(b, 6, blank)
+        cell(c, 6, blank)
+        cell(d, 6, blank)
+        cell(e, 6, blank)
+
+        cell(g, 6, blank)
+        cell(h, 6, blank)
+        cell(i, 6, blank)
+        cell(a, 7, blank)
+        cell(b, 7, blank)
+        cell(c, 7, blank)
+        cell(d, 7, blank)
+        cell(e, 7, blank)
+        cell(f, 7, blank)
+
+        cell(h, 7, blank)
+        cell(i, 7, blank)
+        cell(a, 8, blank)
+        cell(b, 8, blank)
+        cell(c, 8, blank)
+        cell(d, 8, blank)
+        cell(e, 8, blank)
+        cell(f, 8, blank)
+        cell(g, 8, blank)
+
+        cell(i, 8, blank)
+        cell(a, 9, blank)
+        cell(b, 9, blank)
+        cell(c, 9, blank)
+        cell(d, 9, blank)
+        cell(e, 9, blank)
+        cell(f, 9, blank)
+        cell(g, 9, blank)
+        cell(h, 9, blank)
+
+
+        <!-- mines (currently set up in diagonal) -->
+        cell(a, 1, mine)
+        cell(b, 2, mine)
+        cell(c, 3, mine)
+        cell(d, 4, mine)
+        cell(e, 5, mine)
+        cell(f, 6, mine)
+        cell(g, 7, mine)
+        cell(h, 8, mine)
+        cell(i, 9, mine)
+
+
+
+</textarea
+    >
+
+    <textarea id="library" type="text/hrf" style="display: none">
+
+<!-- Probably want something like if mine ==> flip game over flag on
+    if not mine and not 0 ==> mark as clicked and reveal number
+    if not mine and is 0 ==> ??? do the whole big clear thing recursively
+
+
+
+    Predicates
+    - cell(M, N, mine or blank or revealed value)
+    - numberSurroundingMines(M, N)
+
+    Functions
+    - clearAdjacent(M, N) :: ???? probably just means you should reveal all adjacent, and recurse on any that are also numberSurroundingMines == 0
+
+
+-->
+
+
+click(mark(M,N)) :: cell(M, N, blank) ==> cell(M, N, numberSurroundingMines(M, N)) & ~cell(M, N, blank) & clearAdjacent(M, N)
+click(mark(M,N)) :: cell(M, N, mine) ==> exploded & cell(M, N, clickedMine)
+
+
+
+terminal :- exploded
+terminal :- ~open
+
+goal(player,100) :- ~cell(M, N, blank) & ~exploded
+goal(player, 0) :- exploded
+
+open :- cell(M,N,blank)
+
+adjHelper(A, B) :- or(succ(A, B), succ(B, A))
+adjacent(M, N, X, Y) :- file(X) & rank(Y) & or(adjHelper(X, M) & adjHelper(Y, N), adjHelper(X, M) & same(Y, N), same(X, M) & adjHelper(Y, N))
+
+numberSurroundingMines(M, N) :- countofall(cell(X, Y, mine), cell(X, Y, mine) & adjacent(M, N, X, Y))
+
+<!-- clearAdjacent pseudocode
+    if the selected cell at M, N has 0 surrounding mines:
+        for all adjacent cells that are unrevealed:
+            reveal it: ~cell(X, Y, blank) & cell(X, Y, numberSurroundingMines(X, Y))
+            recursively call clearAdjacent on each adjacent cell (should only propagate to those cells that also have 0 surrounding mines)
+ -->
+clearAdjacent(M, N) ::
+    same(numberSurroundingMines(M, N), 0) & adjacent(M, N, X, Y) & cell(X, Y, blank) ==>
+        ~cell(X, Y, blank) & cell(X, Y, numberSurroundingMines(X, Y)) & clearAdjacent(X, Y)
+
+
+<!-- Not sure what to do here for styling -->
+innerhtml(mark(M,N)," ") :- cell(M,N,b)
+innerhtml(mark(M,N),W) :- cell(M,N,W) & distinct(W,b)
+innerhtml(control,W) :- control(W)
+innerhtml(whitereward,N) :- goal(white,N)
+innerhtml(blackreward,N) :- goal(black,N)
+
+attribute(mark(M,N),"onclick",true) :- cell(M,N,W) & distinct(W,b)
+attribute(mark(M,N),"onclick",true) :- terminal & index(M) & index(N)
+
+style(mark(M,N),"cursor","text") :- cell(M,N,W) & distinct(W,b)
+style(mark(M,N),"cursor","text") :- terminal & index(M) & index(N)
+style(rewards,"display","") :- terminal
+
+</textarea
+    >
+
+    <!--=======================================================================-->
+  </body>
+</html>
