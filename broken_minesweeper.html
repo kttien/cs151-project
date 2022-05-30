@@ -1,0 +1,959 @@
+<html>
+  <head>
+    <title>Tic-Tac-Toe</title>
+    <script
+      type="text/javascript"
+      src="http://worksheets.stanford.edu/epilog/javascript/epilog.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="http://worksheets.stanford.edu/worksheets/javascript/worksheets.js"
+    ></script>
+  </head>
+
+  <body onload="initialize()">
+    <center>
+      <td width="500" height="70" align="center">
+        <span style="font-size: 36px; color: black">Minesweeper</span>
+      </td>
+      <br />
+      <br />
+      <br />
+      <span style="font-size: 18px; color: #666666"
+        >Click in a clear square<br />
+        to reveal its status.</span
+      >
+      <table bgcolor="#ffffff" cellspacing="0" border="1">
+        <tbody>
+          <tr>
+            <td
+              id="mark(1,1)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(1,2)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(1,3)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(1,4)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(1,5)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(1,6)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(1,7)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(1,8)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(1,9)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+          </tr>
+          <tr>
+            <td
+              id="mark(2,1)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(2,2)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(2,3)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(2,4)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(2,5)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(2,6)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(2,7)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(2,8)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(2,9)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+          </tr>
+          <tr>
+            <td
+              id="mark(3,1)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(3,2)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(3,3)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(3,4)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(3,5)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(3,6)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(3,7)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(3,8)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(3,9)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+          </tr>
+          <tr>
+            <td
+              id="mark(4,1)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(4,2)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(4,3)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(4,4)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(4,5)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(4,6)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(4,7)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(4,8)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(4,9)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+          </tr>
+          <tr>
+            <td
+              id="mark(5,1)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(5,2)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(5,3)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(5,4)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(5,5)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(5,6)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(5,7)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(5,8)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(5,9)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+          </tr>
+          <tr>
+            <td
+              id="mark(6,1)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(6,2)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(6,3)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(6,4)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(6,5)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(6,6)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(6,7)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(6,8)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(6,9)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+          </tr>
+          <tr>
+            <td
+              id="mark(7,1)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(7,2)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(7,3)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(7,4)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(7,5)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(7,6)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(7,7)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(7,8)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(7,9)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+          </tr>
+          <tr>
+            <td
+              id="mark(8,1)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(8,2)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(8,3)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(8,4)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(8,5)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(8,6)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(8,7)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(8,8)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(8,9)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+          </tr>
+          <tr>
+            <td
+              id="mark(9,1)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(9,2)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(9,3)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(9,4)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(9,5)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(9,6)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(9,7)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(9,8)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+            <td
+              id="mark(9,9)"
+              width="60"
+              height="60"
+              align="center"
+              valign="center"
+              style="font-family: helvetica; font-size: 28pt; cursor: pointer"
+              onclick="modbutton(this)"
+            ></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <br />
+      <br />
+
+      <table
+        id="results"
+        width="300"
+        cellspacing="0"
+        cellpadding="4"
+        border="1"
+      >
+        <tbody>
+          <tr>
+            <td width="50%" align="center" bgcolor="#ffffff">Player 1</td>
+            <td width="50%" align="center" bgcolor="#ffffff">Player 2</td>
+          </tr>
+          <tr>
+            <td id="p1result" width="50%" align="center">X</td>
+            <td id="p2result" width="50%" align="center">O</td>
+          </tr>
+        </tbody>
+      </table>
+    </center>
+  </body>
+  <dataset id="lambda" style="display: none">
+    succ(1,2)
+    succ(2,3)
+    succ(3,4)
+    succ(4,5)
+    succ(5,6)
+    succ(6,7)
+    succ(7,8)
+    succ(8,9)
+    succ(a,b)
+    succ(b,c)
+    succ(c,d)
+    succ(d,e)
+    succ(e,f)
+    succ(f,g)
+    succ(g,h)
+    succ(h,i)
+
+    <!-- Cell syntax: cell(<column>, <row>, <contents>) -->
+    <!-- Possible contents of cell:
+        - "mine", "b" are unclicked, so should be rendered the same
+        - numberSurroundingMines for clicked b, so should render the number
+        - "clickedMine" for clicked mine, so should render a mine -->
+    <!-- b cells (all cells with mine cells deleted)-->
+    cell(2, 1, b)
+    cell(3, 1, b)
+    cell(4, 1, b)
+    cell(5, 1, b)
+    cell(6, 1, b)
+    cell(7, 1, b)
+    cell(8, 1, b)
+    cell(9, 1, b)
+    cell(1, 2, b)
+
+    cell(3, 2, b)
+    cell(4, 2, b)
+    cell(5, 2, b)
+    cell(6, 2, b)
+    cell(7, 2, b)
+    cell(8, 2, b)
+    cell(9, 2, b)
+    cell(1, 3, b)
+    cell(2, 3, b)
+
+    cell(4, 3, b)
+    cell(5, 3, b)
+    cell(6, 3, b)
+    cell(7, 3, b)
+    cell(8, 3, b)
+    cell(9, 3, b)
+    cell(1, 4, b)
+    cell(2, 4, b)
+    cell(3, 4, b)
+
+    cell(5, 4, b)
+    cell(6, 4, b)
+    cell(7, 4, b)
+    cell(8, 4, b)
+    cell(9, 4, b)
+    cell(1, 5, b)
+    cell(2, 5, b)
+    cell(3, 5, b)
+    cell(4, 5, b)
+
+    cell(6, 5, b)
+    cell(7, 5, b)
+    cell(8, 5, b)
+    cell(9, 5, b)
+    cell(1, 6, b)
+    cell(2, 6, b)
+    cell(3, 6, b)
+    cell(4, 6, b)
+    cell(5, 6, b)
+
+    cell(7, 6, b)
+    cell(8, 6, b)
+    cell(9, 6, b)
+    cell(1, 7, b)
+    cell(2, 7, b)
+    cell(3, 7, b)
+    cell(4, 7, b)
+    cell(5, 7, b)
+    cell(6, 7, b)
+
+    cell(8, 7, b)
+    cell(9, 7, b)
+    cell(1, 8, b)
+    cell(2, 8, b)
+    cell(3, 8, b)
+    cell(4, 8, b)
+    cell(5, 8, b)
+    cell(6, 8, b)
+    cell(7, 8, b)
+
+    cell(9, 8, b)
+    cell(1, 9, b)
+    cell(2, 9, b)
+    cell(3, 9, b)
+    cell(4, 9, b)
+    cell(5, 9, b)
+    cell(6, 9, b)
+    cell(7, 9, b)
+    cell(8, 9, b)
+
+
+    <!-- mines (currently set up in diagonal) -->
+    cell(1, 1, mine)
+    cell(2, 2, mine)
+    cell(3, 3, mine)
+    cell(4, 4, mine)
+    cell(5, 5, mine)
+    cell(6, 6, mine)
+    cell(7, 7, mine)
+    cell(8, 8, mine)
+    cell(9, 9, mine)
+  </dataset>
+  <ruleset id="library" style="display: none">
+    numberSurroundingMines(M, N) :- countofall(cell(X, Y, mine), cell(X, Y, mine) &amp;adjacent(M, N, X, Y))
+    click(mark(M,N)) :: cell(M, N, b) &amp; evaluate(numberSurroundingMines(M, N), NumMines) ==&gt; cell(M, N, NumMines)
+    &amp;~cell(M, N, b) &amp;clearAdjacent(M, N)
+    click(mark(M,N)) :: cell(M, N, mine) ==&gt; exploded &amp; ~cell(M, N, mine) &amp; cell(M, N, clickedMine)
+
+    legal(M,N) :: cell(M,N,b) | cell(M,N,mine)
+
+    terminal :- exploded
+    terminal :- ~open
+
+    goal(player,100) :- ~cell(M, N, b) &amp;~exploded
+    goal(player, 0) :- exploded
+
+    open :- cell(M,N,b)
+
+    adjHelper(A, B) :- or(succ(A, B), succ(B, A))
+    adjacent(M, N, X, Y) :- file(X) &amp;rank(Y) &amp;or(adjHelper(X, M) &amp;adjHelper(Y, N), adjHelper(X, M) &amp;same(Y, N), same(X, M) &amp;adjHelper(Y, N))
+
+
+
+    <!-- clearAdjacent pseudocode
+        if the selected cell at M, N has 0 surrounding mines:
+            for all adjacent cells that are unrevealed:
+                reveal it: ~cell(X, Y, b) &amp;cell(X, Y, numberSurroundingMines(X, Y))
+                recursively call clearAdjacent on each adjacent cell (should only propagate to those cells that also have 0 surrounding mines)
+    -->
+    clearAdjacent(M, N) ::
+        same(numberSurroundingMines(M, N), 0) &amp;adjacent(M, N, X, Y) &amp;cell(X, Y, b) ==&gt;
+            ~cell(X, Y, b) &amp;cell(X, Y, numberSurroundingMines(X, Y)) &amp;clearAdjacent(X, Y)
+
+
+
+
+    innerhtml(mark(R,C),W) :- cell(R,C,W) &amp; distinct(W,b)
+    innerhtml(curplayer,W) :- curplayer(W) innerhtml(p1result,C) :- goal(p1,C)
+    innerhtml(p2result,C) :- goal(p2,C) c(1) c(2) c(3)
+    attribute(mark(R,C),"onclick",true) :- cell(R,C,W) &amp; distinct(W,b)
+    attribute(mark(R,C),"onclick",true) :- terminal &amp; c(R) &amp; c(C)
+    style(mark(R,C),"cursor","text") :- cell(R,C,W) &amp; distinct(W,b)
+    style(mark(R,C),"cursor","text") :- terminal &amp; c(R) &amp; c(C)
+  </ruleset>
+</html>
