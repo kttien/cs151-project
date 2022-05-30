@@ -799,6 +799,26 @@
     </center>
   </body>
   <dataset id="lambda" style="display: none">
+    file(1)
+    file(2)
+    file(3)
+    file(4)
+    file(5)
+    file(6)
+    file(7)
+    file(8)
+    file(9)
+
+    rank(1)
+    rank(2)
+    rank(3)
+    rank(4)
+    rank(5)
+    rank(6)
+    rank(7)
+    rank(8)
+    rank(9)
+
     succ(1,2)
     succ(2,3)
     succ(3,4)
@@ -915,9 +935,7 @@
     cell(9, 9, mine)
   </dataset>
   <ruleset id="library" style="display: none">
-    numberSurroundingMines(M, N) :- countofall(cell(X, Y, mine), cell(X, Y, mine) &amp;adjacent(M, N, X, Y))
-    click(mark(M,N)) :: cell(M, N, b) &amp; evaluate(numberSurroundingMines(M, N), NumMines) ==&gt; cell(M, N, NumMines)
-    &amp;~cell(M, N, b) &amp;clearAdjacent(M, N)
+    click(mark(M,N)) :: cell(M, N, b) &amp; evaluate(countofall(cell(X, Y, mine), cell(X, Y, mine) &amp;adjacent(M, N, X, Y)), NumMines) ==&gt; cell(M, N, NumMines) &amp;~cell(M, N, b) &amp;clearAdjacent(M, N)
     click(mark(M,N)) :: cell(M, N, mine) ==&gt; exploded &amp; ~cell(M, N, mine) &amp; cell(M, N, clickedMine)
 
     legal(M,N) :: cell(M,N,b) | cell(M,N,mine)
