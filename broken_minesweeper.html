@@ -933,21 +933,33 @@
 
     terminal :- exploded | ~open
 
-    goal(p2,victory) :- ~cell(M, N, b, Z) & ~exploded
-    goal(p2, died) :- exploded
+    goal(p2,"YOU WIN!") :- ~cell(M, N, b) &~exploded
+    goal(p2, "GAME OVER") :- exploded
 
+    open :- cell(M,N,b)
+
+    adjHelper(A, B) :- or(succ(A, B), succ(B, A))
+    adjacent(M, N, X, Y) :- file(X) &rank(Y) &or(adjHelper(X, M) &adjHelper(Y, N), adjHelper(X, M) &same(Y, N), same(X, M) &adjHelper(Y, N))
 
     innerhtml(mark(M,N),"&#128681;") :- cell(M,N,W,Z) & same(Z, f)
     innerhtml(mark(M,N),"&#128163;") :- terminal & cell(M,N,W,Z) & distinct(W, b)
     innerhtml(mark(R,C), W) :- cell(R,C,W,Z) & distinct(W,b) & distinct(W, mine)
     attribute(mark(R,C),"onclick",true) :- terminal & cell(R,C,W,Z) & distinct(W,x)
 
-    style(mark(R,C),"cursor","text") :- cell(R,C,W,Z) & distinct(W,b) & distinct(W, mine)
+    <!-- innerhtml(curplayer,W) :- curplayer(W) innerhtml(p1result,C) :- goal(p1,C)
+    innerhtml(p2result,C) :- goal(p2,C) c(1) c(2) c(3)
+    attribute(mark(R,C),"onclick",true) :- cell(R,C,W) & distinct(W,b)
+    attribute(mark(R,C),"onclick",true) :- terminal & c(R) & c(C) -->
+    style(mark(R,C),"cursor","text") :- cell(R,C,W) & distinct(W,b) & distinct(W, mine)
     style(mark(R,C),"cursor","text") :- exploded & cell(R, C, W, Z)
+    style(mark(R, C), color, red) :- cell(R, C, 4, Z)
+    style(mark(R, C), color, red) :- cell(R, C, 5, Z)
+    style(mark(R, C), color, red) :- cell(R, C, 6, Z)
+    style(mark(R, C), color, red) :- cell(R, C, 7, Z)
+    style(mark(R, C), color, red) :- cell(R, C, 8, Z)
     style(mark(R, C), color, red) :- cell(R, C, 3, Z)
     style(mark(R, C), color, tomato) :- cell(R, C, 2, Z)
     style(mark(R, C), color, orange) :- cell(R, C, 1, Z)
     style(mark(R, C), color, royalblue) :- cell(R, C, 0, Z)
   </ruleset>
 </html>
-
