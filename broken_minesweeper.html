@@ -777,25 +777,7 @@
 
       <br />
       <br />
-
-      <table
-        id="results"
-        width="300"
-        cellspacing="0"
-        cellpadding="4"
-        border="1"
-      >
-        <tbody>
-          <tr>
-            <!-- <td width="50%" align="center" bgcolor="#ffffff">Player 1</td> -->
-            <td width="50%" align="center" bgcolor="#ffffff">Player</td>
-          </tr>
-          <tr>
-            <!-- <td id="p1result" width="50%" align="center">X</td> -->
-            <td id="p2result" width="50%" align="center">alive</td>
-          </tr>
-        </tbody>
-      </table>
+      <div id="p2result" align="center" style="color:red"></div>
     </center>
   </body>
   <dataset id="lambda" style="display: none">
@@ -958,7 +940,7 @@
     terminal :- exploded | ~open
 
     goal(p2,100) :- ~cell(M, N, b) &~exploded
-    goal(p2, died) :- exploded
+    goal(p2, "GAME OVER") :- exploded
 
     open :- cell(M,N,b)
 
