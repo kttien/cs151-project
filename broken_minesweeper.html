@@ -935,43 +935,42 @@
     cell(9, 9, mine)
   </dataset>
   <ruleset id="library" style="display: none">
-    click(mark(M,N)) :: cell(M, N, b) &amp; evaluate(countofall(cell(X, Y, mine), cell(X, Y, mine) &amp;adjacent(M, N, X, Y)), NumMines) ==&gt; cell(M, N, NumMines) &amp;~cell(M, N, b) &amp;clearAdjacent(M, N)
-    click(mark(M,N)) :: cell(M, N, mine) ==&gt; exploded &amp; ~cell(M, N, mine) &amp; cell(M, N, clickedMine)
+    reveal(M, N) :: cell(M, N, b) & evaluate(countofall(cell(X, Y, mine), cell(X, Y, mine) &adjacent(M, N, X, Y)), NumMines) ==> cell(M, N, NumMines)&~cell(M, N, b)
+    hasClearSurroundings(M, N) :- evaluate(countofall(cell(X, Y, mine), cell(X, Y, mine) &adjacent(M, N, X, Y)), 0)
 
-    legal(M,N) :: cell(M,N,b) | cell(M,N,mine)
+    <!-- clearAdjacent pseudocode
+        if the selected cell at M, N has 0 surrounding mines:
+            for all adjacent cells that are unrevealed:
+                reveal it: ~cell(X, Y, b) &cell(X, Y, numberSurroundingMines(X, Y))
+                recursively call clearAdjacent on each adjacent cell (should only propagate to those cells that also have 0 surrounding mines)
+    -->
+    <!-- TODO: fix clearAdjacent -->
+    clearAdjacent(M, N) ::
+    hasClearSurroundings(M, N) &adjacent(M, N, X, Y) &cell(X, Y, b) ==>
+            reveal(X, Y)
+            <!-- & clearAdjacent(X, Y) -->
+    click(mark(M,N)) :: reveal(M, N) & clearAdjacent(M, N)
+    click(mark(M,N)) :: cell(M, N, mine) ==> exploded & ~cell(M, N, mine) & cell(M, N, clickedMine)
+
+    legal(M,N) :- cell(M,N,b) | cell(M,N,mine)
 
     terminal :- exploded
     terminal :- ~open
 
-    goal(player,100) :- ~cell(M, N, b) &amp;~exploded
+    goal(player,100) :- ~cell(M, N, b) &~exploded
     goal(player, 0) :- exploded
 
     open :- cell(M,N,b)
 
     adjHelper(A, B) :- or(succ(A, B), succ(B, A))
-    adjacent(M, N, X, Y) :- file(X) &amp;rank(Y) &amp;or(adjHelper(X, M) &amp;adjHelper(Y, N), adjHelper(X, M) &amp;same(Y, N), same(X, M) &amp;adjHelper(Y, N))
+    adjacent(M, N, X, Y) :- file(X) &rank(Y) &or(adjHelper(X, M) &adjHelper(Y, N), adjHelper(X, M) &same(Y, N), same(X, M) &adjHelper(Y, N))
 
-
-
-    <!-- clearAdjacent pseudocode
-        if the selected cell at M, N has 0 surrounding mines:
-            for all adjacent cells that are unrevealed:
-                reveal it: ~cell(X, Y, b) &amp;cell(X, Y, numberSurroundingMines(X, Y))
-                recursively call clearAdjacent on each adjacent cell (should only propagate to those cells that also have 0 surrounding mines)
-    -->
-    clearAdjacent(M, N) ::
-        same(numberSurroundingMines(M, N), 0) &amp;adjacent(M, N, X, Y) &amp;cell(X, Y, b) ==&gt;
-            ~cell(X, Y, b) &amp;cell(X, Y, numberSurroundingMines(X, Y)) &amp;clearAdjacent(X, Y)
-
-
-
-
-    innerhtml(mark(R,C),W) :- cell(R,C,W) &amp; distinct(W,b)
+    innerhtml(mark(R,C),W) :- cell(R,C,W) & distinct(W,b)
     innerhtml(curplayer,W) :- curplayer(W) innerhtml(p1result,C) :- goal(p1,C)
     innerhtml(p2result,C) :- goal(p2,C) c(1) c(2) c(3)
-    attribute(mark(R,C),"onclick",true) :- cell(R,C,W) &amp; distinct(W,b)
-    attribute(mark(R,C),"onclick",true) :- terminal &amp; c(R) &amp; c(C)
-    style(mark(R,C),"cursor","text") :- cell(R,C,W) &amp; distinct(W,b)
-    style(mark(R,C),"cursor","text") :- terminal &amp; c(R) &amp; c(C)
+    attribute(mark(R,C),"onclick",true) :- cell(R,C,W) & distinct(W,b)
+    attribute(mark(R,C),"onclick",true) :- terminal & c(R) & c(C)
+    style(mark(R,C),"cursor","text") :- cell(R,C,W) & distinct(W,b)
+    style(mark(R,C),"cursor","text") :- terminal & c(R) & c(C)
   </ruleset>
 </html>

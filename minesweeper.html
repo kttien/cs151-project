@@ -1187,7 +1187,7 @@ click(mark(M,N)) :: cell(M, N, blank) ==> cell(M, N, numberSurroundingMines(M, N
 click(mark(M,N)) :: cell(M, N, mine) ==> exploded & cell(M, N, clickedMine)
 <!-- Might also need to reveal all cells during game over? Or maybe that can happen by styling? -->
 
-legal(M,N) :: cell(M,N,blank) or cell(M,N,mine)
+legal(M,N) :- cell(M,N,blank) or cell(M,N,mine)
 
 terminal :- exploded
 terminal :- ~open
