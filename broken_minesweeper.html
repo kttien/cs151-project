@@ -11,7 +11,7 @@
     ></script>
   </head>
 
-  <body onload="initialize()">
+  <body onload="initialize()" style="background-color: rgb(192, 192, 192);">
     <center>
       <td width="500" height="70" align="center">
         <span style="font-family: Futura; font-size: 36px; color: black">MINESWEEPER</span>
@@ -21,6 +21,7 @@
         >click in a clear square to reveal its status</span
       >
       <br/>
+      <div id="p2result" align="center" style="font-family: Futura;color:red; font-size: 32px;"></div>
       <table bgcolor="#ffffff" cellspacing="0" border="1">
         <tbody>
           <tr>
@@ -772,10 +773,6 @@
           </tr>
         </tbody>
       </table>
-
-      <br />
-      <br />
-      <div id="p2result" align="center" style="font-family: Futura;color:red; font-size: 32px;"></div>
     </center>
   </body>
   <dataset id="lambda" style="display: none">
