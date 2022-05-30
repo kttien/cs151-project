@@ -933,6 +933,7 @@
     cell(7, 7, mine)
     cell(8, 8, mine)
     cell(9, 9, mine)
+
   </dataset>
   <ruleset id="library" style="display: none">
     reveal(M, N) :: cell(M, N, b) & evaluate(countofall(cell(X, Y, mine), cell(X, Y, mine) &adjacent(M, N, X, Y)), NumMines) ==> cell(M, N, NumMines)&~cell(M, N, b)
@@ -965,12 +966,14 @@
     adjHelper(A, B) :- or(succ(A, B), succ(B, A))
     adjacent(M, N, X, Y) :- file(X) &rank(Y) &or(adjHelper(X, M) &adjHelper(Y, N), adjHelper(X, M) &same(Y, N), same(X, M) &adjHelper(Y, N))
 
-    innerhtml(mark(R,C),W) :- cell(R,C,W) & distinct(W,b)
+    innerhtml(mark(R,C),W) :- cell(R,C,W) & distinct(W,b) & distinct(W, mine)
     innerhtml(curplayer,W) :- curplayer(W) innerhtml(p1result,C) :- goal(p1,C)
     innerhtml(p2result,C) :- goal(p2,C) c(1) c(2) c(3)
     attribute(mark(R,C),"onclick",true) :- cell(R,C,W) & distinct(W,b)
     attribute(mark(R,C),"onclick",true) :- terminal & c(R) & c(C)
-    style(mark(R,C),"cursor","text") :- cell(R,C,W) & distinct(W,b)
+    style(mark(R,C),"cursor","text") :- cell(R,C,W) & distinct(W,b) & distinct(W, mine)
     style(mark(R,C),"cursor","text") :- terminal & c(R) & c(C)
+
+
   </ruleset>
 </html>
