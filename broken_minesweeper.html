@@ -951,7 +951,7 @@
             reveal(X, Y)
             <!-- & clearAdjacent(X, Y) -->
     click(mark(M,N)) :: reveal(M, N) & clearAdjacent(M, N)
-    click(mark(M,N)) :: cell(M, N, mine) ==> exploded & ~cell(M, N, mine) & cell(M, N, clickedMine)
+    click(mark(M,N)) :: cell(M, N, mine) ==> exploded & ~cell(M, N, mine) & cell(M, N, "&#128163;")
 
     legal(M,N) :- cell(M,N,b) | cell(M,N,mine)
 
@@ -967,12 +967,13 @@
     adjacent(M, N, X, Y) :- file(X) &rank(Y) &or(adjHelper(X, M) &adjHelper(Y, N), adjHelper(X, M) &same(Y, N), same(X, M) &adjHelper(Y, N))
 
     innerhtml(mark(R,C),W) :- cell(R,C,W) & distinct(W,b) & distinct(W, mine)
-    innerhtml(curplayer,W) :- curplayer(W) innerhtml(p1result,C) :- goal(p1,C)
+
+    <!-- innerhtml(curplayer,W) :- curplayer(W) innerhtml(p1result,C) :- goal(p1,C)
     innerhtml(p2result,C) :- goal(p2,C) c(1) c(2) c(3)
     attribute(mark(R,C),"onclick",true) :- cell(R,C,W) & distinct(W,b)
     attribute(mark(R,C),"onclick",true) :- terminal & c(R) & c(C)
     style(mark(R,C),"cursor","text") :- cell(R,C,W) & distinct(W,b) & distinct(W, mine)
-    style(mark(R,C),"cursor","text") :- terminal & c(R) & c(C)
+    style(mark(R,C),"cursor","text") :- terminal & c(R) & c(C) -->
 
 
   </ruleset>
