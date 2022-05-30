@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Tic-Tac-Toe</title>
+    <title>Minesweeper</title>
     <script
       type="text/javascript"
       src="http://worksheets.stanford.edu/epilog/javascript/epilog.js"
@@ -974,6 +974,9 @@
     attribute(mark(R,C),"onclick",true) :- terminal & c(R) & c(C) -->
     style(mark(R,C),"cursor","text") :- cell(R,C,W) & distinct(W,b) & distinct(W, mine)
     style(mark(R,C),"cursor","text") :- terminal & c(R) & c(C)
+    style(mark(R, C), color, red) :- cell(R, C, 3)
+    style(mark(R, C), color, tomato) :- cell(R, C, 2)
+    style(mark(R, C), color, orange) :- cell(R, C, 1)
 
 
   </ruleset>
