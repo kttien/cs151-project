@@ -971,9 +971,9 @@
     <!-- innerhtml(curplayer,W) :- curplayer(W) innerhtml(p1result,C) :- goal(p1,C)
     innerhtml(p2result,C) :- goal(p2,C) c(1) c(2) c(3)
     attribute(mark(R,C),"onclick",true) :- cell(R,C,W) & distinct(W,b)
-    attribute(mark(R,C),"onclick",true) :- terminal & c(R) & c(C)
+    attribute(mark(R,C),"onclick",true) :- terminal & c(R) & c(C) -->
     style(mark(R,C),"cursor","text") :- cell(R,C,W) & distinct(W,b) & distinct(W, mine)
-    style(mark(R,C),"cursor","text") :- terminal & c(R) & c(C) -->
+    style(mark(R,C),"cursor","text") :- terminal & c(R) & c(C)
 
 
   </ruleset>
