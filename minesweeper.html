@@ -978,8 +978,6 @@
           </td>
         </tr>
       </table>
-      Player:
-      <span id="control" style="font-size: 18px; color: #666666">x</span>
     </center>
 
     <br />
@@ -1219,8 +1217,8 @@ clearAdjacent(M, N) ::
 innerhtml(mark(M,N)," ") :- cell(M,N,b)
 innerhtml(mark(M,N),W) :- cell(M,N,W) & distinct(W,b)
 innerhtml(control,W) :- control(W)
-innerhtml(whitereward,N) :- goal(white,N)
-innerhtml(blackreward,N) :- goal(black,N)
+<!-- innerhtml(whitereward,N) :- goal(white,N)
+innerhtml(blackreward,N) :- goal(black,N) -->
 
 attribute(mark(M,N),"onclick",true) :- cell(M,N,W) & distinct(W,b)
 attribute(mark(M,N),"onclick",true) :- terminal & index(M) & index(N)
