@@ -934,7 +934,7 @@
 
     terminal :- exploded | ~open
 
-    goal(p2,100) :- ~cell(M, N, b) &~exploded
+    goal(p2,"YOU WIN!") :- ~cell(M, N, b) &~exploded
     goal(p2, "GAME OVER") :- exploded
 
     open :- cell(M,N,b)
