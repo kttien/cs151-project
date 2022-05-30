@@ -787,7 +787,13 @@
       >
         <tbody>
           <tr>
-            <td width="50%" align="center" bgcolor="#ffffff">Player 1</td>
+            <!-- <td width="50%" align="center" bgcolor="#ffffff">Player 1</td> -->
+            <td width="50%" align="center" bgcolor="#ffffff">Player</td>
+          </tr>
+          <tr>
+            <!-- <td id="p1result" width="50%" align="center">X</td> -->
+            <td id="p2result" width="50%" align="center">alive</td>
+          </tr>
         </tbody>
       </table>
     </center>
@@ -952,8 +958,8 @@
     terminal :- exploded
     terminal :- ~open
 
-    <!-- goal(player,100) :- ~cell(M, N, b) &~exploded
-    goal(player, 0) :- exploded -->
+    goal(p2,100) :- ~cell(M, N, b) &~exploded
+    goal(p2, died) :- exploded
 
     open :- cell(M,N,b)
 
@@ -966,6 +972,7 @@
     innerhtml(p2result,C) :- goal(p2,C) c(1) c(2) c(3)
     attribute(mark(R,C),"onclick",true) :- cell(R,C,W) & distinct(W,b)
     attribute(mark(R,C),"onclick",true) :- terminal & c(R) & c(C) -->
+    innerhtml(p2result,C) :- goal(p2,C) c(1) c(2) c(3)
     style(mark(R,C),"cursor","text") :- cell(R,C,W) & distinct(W,b) & distinct(W, mine)
     style(mark(R,C),"cursor","text") :- exploded & cell(R, C, X)
     style(mark(R, C), color, red) :- cell(R, C, 3)
