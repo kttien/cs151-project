@@ -936,7 +936,6 @@
     goal(p2,"YOU WIN!") :- ~cell(M, N, b, Z) & ~exploded
     goal(p2, "GAME OVER") :- exploded
 
-    open :- cell(M,N,b,u) | cell(M,N,b,f)
 
     adjHelper(A, B) :- or(succ(A, B), succ(B, A))
     adjacent(M, N, X, Y) :- file(X) &rank(Y) &or(adjHelper(X, M) &adjHelper(Y, N), adjHelper(X, M) &same(Y, N), same(X, M) &adjHelper(Y, N))
