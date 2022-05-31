@@ -941,7 +941,7 @@ cell(9, 9, mine, u)
 
   terminal :- exploded | ~open
 
-  goal(p2,"YOU WIN!") :- ~cell(M, N, b, Z) & ~exploded
+  goal(p2,"YOU WIN!") :- ~cell(M, N, b, u) & ~cell(M, N, b, f) & ~exploded
   goal(p2, "GAME OVER") :- exploded
 
 
@@ -950,6 +950,7 @@ cell(9, 9, mine, u)
   &adjHelper(Y, N))
 
   innerhtml(mark(M,N),"&#128681;") :- cell(M,N,W,Z) & same(Z, f)
+  innerhtml(mark(M,N),"") :- cell(M,N,W,Z) & same(Z, u)
   innerhtml(mark(M,N),"&#128163;") :- terminal & cell(M,N,W,Z) & distinct(W, b)
   innerhtml(mark(R,C), W) :- cell(R,C,W,Z) & distinct(W,b) & distinct(W, mine)
   attribute(mark(R,C),"onclick",true) :- terminal & cell(R,C,W,Z) & distinct(W,x)
