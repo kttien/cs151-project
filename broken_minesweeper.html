@@ -770,195 +770,201 @@
               style="font-family: helvetica; font-size: 28pt; cursor: pointer"
               onclick="modbutton(this)"
             ></td>
-          </tr>
-        </tbody>
-      </table>
-    </center>
-  </body>
-  <dataset id="lambda" style="display: none">
-    file(1)
-    file(2)
-    file(3)
-    file(4)
-    file(5)
-    file(6)
-    file(7)
-    file(8)
-    file(9)
+        </tr>
+      </tbody>
+    </table>
+    <br />
+    <br />
+    <div id="p2result" align="center" style="color:red"></div>
+  </center>
+</body>
 
-    rank(1)
-    rank(2)
-    rank(3)
-    rank(4)
-    rank(5)
-    rank(6)
-    rank(7)
-    rank(8)
-    rank(9)
 
-    succ(1,2)
-    succ(2,3)
-    succ(3,4)
-    succ(4,5)
-    succ(5,6)
-    succ(6,7)
-    succ(7,8)
-    succ(8,9)
-    succ(a,b)
-    succ(b,c)
-    succ(c,d)
-    succ(d,e)
-    succ(e,f)
-    succ(f,g)
-    succ(g,h)
-    succ(h,i)
+<dataset id="lambda" style="display: none">
+  file(1)
+  file(2)
+  file(3)
+  file(4)
+  file(5)
+  file(6)
+  file(7)
+  file(8)
+  file(9)
 
-    <!-- Cell syntax: cell(<column>, <row>, <contents>) -->
-    <!-- Possible contents of cell:
+  rank(1)
+  rank(2)
+  rank(3)
+  rank(4)
+  rank(5)
+  rank(6)
+  rank(7)
+  rank(8)
+  rank(9)
+
+  succ(1,2)
+  succ(2,3)
+  succ(3,4)
+  succ(4,5)
+  succ(5,6)
+  succ(6,7)
+  succ(7,8)
+  succ(8,9)
+  succ(a,b)
+  succ(b,c)
+  succ(c,d)
+  succ(d,e)
+  succ(e,f)
+  succ(f,g)
+  succ(g,h)
+  succ(h,i)
+
+  <!-- Cell syntax: cell(<column>, <row>, <contents>) -->
+  <!-- Possible contents of cell:
         - "mine", "b" are unclicked, so should be rendered the same
         - numberSurroundingMines for clicked b, so should render the number
         - "clickedMine" for clicked mine, so should render a mine -->
-    <!-- b cells (all cells with mine cells deleted)-->
-    cell(2, 1, b, u)
-    cell(3, 1, b, u)
-    cell(4, 1, b, u)
-    cell(5, 1, b, u)
-    cell(6, 1, b, u)
-    cell(7, 1, b, u)
-    cell(8, 1, b, u)
-    cell(9, 1, b, u)
-    cell(1, 2, b, u)
+  <!-- b cells (all cells with mine cells deleted)-->
+  cell(2, 1, b, u)
+  cell(3, 1, b, u)
+  cell(4, 1, b, u)
+  cell(5, 1, b, u)
+  cell(6, 1, b, u)
+  cell(7, 1, b, u)
+  cell(8, 1, b, u)
+  cell(9, 1, b, u)
+  cell(1, 2, b, u)
 
-    cell(3, 2, b, u)
-    cell(4, 2, b, u)
-    cell(5, 2, b, u)
-    cell(6, 2, b, u)
-    cell(7, 2, b, u)
-    cell(8, 2, b, u)
-    cell(9, 2, b, u)
-    cell(1, 3, b, u)
-    cell(2, 3, b, u)
+  cell(3, 2, b, u)
+  cell(4, 2, b, u)
+  cell(5, 2, b, u)
+  cell(6, 2, b, u)
+  cell(7, 2, b, u)
+  cell(8, 2, b, u)
+  cell(9, 2, b, u)
+  cell(1, 3, b, u)
+  cell(2, 3, b, u)
 
-    cell(4, 3, b, u)
-    cell(5, 3, b, u)
-    cell(6, 3, b, u)
-    cell(7, 3, b, u)
-    cell(8, 3, b, u)
-    cell(9, 3, b, u)
-    cell(1, 4, b, u)
-    cell(2, 4, b, u)
-    cell(3, 4, b, u)
+  cell(4, 3, b, u)
+  cell(5, 3, b, u)
+  cell(6, 3, b, u)
+  cell(7, 3, b, u)
+  cell(8, 3, b, u)
+  cell(9, 3, b, u)
+  cell(1, 4, b, u)
+  cell(2, 4, b, u)
+  cell(3, 4, b, u)
 
-    cell(5, 4, b, u)
-    cell(6, 4, b, u)
-    cell(7, 4, b, u)
-    cell(8, 4, b, u)
-    cell(9, 4, b, u)
-    cell(1, 5, b, u)
-    cell(2, 5, b, u)
-    cell(3, 5, b, u)
-    cell(4, 5, b, u)
+  cell(5, 4, b, u)
+  cell(6, 4, b, u)
+  cell(7, 4, b, u)
+  cell(8, 4, b, u)
+  cell(9, 4, b, u)
+  cell(1, 5, b, u)
+  cell(2, 5, b, u)
+  cell(3, 5, b, u)
+  cell(4, 5, b, u)
 
-    cell(6, 5, b, u)
-    cell(7, 5, b, u)
-    cell(8, 5, b, u)
-    cell(9, 5, b, u)
-    cell(1, 6, b, u)
-    cell(2, 6, b, u)
-    cell(3, 6, b, u)
-    cell(4, 6, b, u)
-    cell(5, 6, b, u)
+  cell(6, 5, b, u)
+  cell(7, 5, b, u)
+  cell(8, 5, b, u)
+  cell(9, 5, b, u)
+  cell(1, 6, b, u)
+  cell(2, 6, b, u)
+  cell(3, 6, b, u)
+  cell(4, 6, b, u)
+  cell(5, 6, b, u)
 
-    cell(7, 6, b, u)
-    cell(8, 6, b, u)
-    cell(9, 6, b, u)
-    cell(1, 7, b, u)
-    cell(2, 7, b, u)
-    cell(3, 7, b, u)
-    cell(4, 7, b, u)
-    cell(5, 7, b, u)
-    cell(6, 7, b, u)
+  cell(7, 6, b, u)
+  cell(8, 6, b, u)
+  cell(9, 6, b, u)
+  cell(1, 7, b, u)
+  cell(2, 7, b, u)
+  cell(3, 7, b, u)
+  cell(4, 7, b, u)
+  cell(5, 7, b, u)
+  cell(6, 7, b, u)
 
-    cell(8, 7, b, u)
-    cell(9, 7, b, u)
-    cell(1, 8, b, u)
-    cell(2, 8, b, u)
-    cell(3, 8, b, u)
-    cell(4, 8, b, u)
-    cell(5, 8, b, u)
-    cell(6, 8, b, u)
-    cell(7, 8, b, u)
+  cell(8, 7, b, u)
+  cell(9, 7, b, u)
+  cell(1, 8, b, u)
+  cell(2, 8, b, u)
+  cell(3, 8, b, u)
+  cell(4, 8, b, u)
+  cell(5, 8, b, u)
+  cell(6, 8, b, u)
+  cell(7, 8, b, u)
 
-    cell(9, 8, b, u)
-    cell(1, 9, b, u)
-    cell(2, 9, b, u)
-    cell(3, 9, b, u)
-    cell(4, 9, b, u)
-    cell(5, 9, b, u)
-    cell(6, 9, b, u)
-    cell(7, 9, b, u)
-    cell(8, 9, b, u)
-
-
-    <!-- mines (currently set up in diagonal) -->
-    cell(1, 1, mine, u)
-    cell(2, 2, mine, u)
-    cell(3, 3, mine, u)
-    cell(4, 4, mine, u)
-    cell(5, 5, mine, u)
-    cell(6, 6, mine, u)
-    cell(7, 7, mine, u)
-    cell(8, 8, mine, u)
-    cell(9, 9, mine, u)
-
-  </dataset>
-  <ruleset id="library" style="display: none">
-    <!-- first click sets flag -->
-    click(mark(M,N)) :: cell(M, N, b, u) ==> ~cell(M, N, b, u) & cell(M, N, b, f)
-    click(mark(M,N)) :: cell(M, N, mine, u) ==> ~cell(M, N, mine, u) & cell(M, N, mine, f)
-    <!-- second click reveals cell -->
-    click(mark(M,N)) :: cell(M, N, b, f) ==> reveal(M, N) & clearAdjacent(M, N) 
-    click(mark(M,N)) :: cell(M, N, mine, f) ==> exploded & ~cell(M, N, mine, f) & cell(M, N, "&#128163;", u)
-
-    <!-- currently broken -->
-    reveal(M, N) :: cell(M, N, b, Z) & evaluate(countofall(cell(X, Y, mine, u) | cell(X, Y, mine, f), (cell(X, Y, mine, u) | cell(X, Y, mine, f)) & adjacent(M, N, X, Y)), NumMines) ==> ~cell(M, N, b, f) & cell(M, N, NumMines, u) 
-    hasClearSurroundings(M, N) :- evaluate(countofall(cell(X, Y, mine, u) | cell(X, Y, mine, f), (cell(X, Y, mine, u) | cell(X, Y, mine, f)) & adjacent(M, N, X, Y)), 0)
-
-    adjHelper(A, B) :- or(succ(A, B), succ(B, A))
-    adjacent(M, N, X, Y) :- file(X) & rank(Y) & or(adjHelper(X, M) &adjHelper(Y, N), adjHelper(X, M) &same(Y, N), same(X, M) &adjHelper(Y, N))
-    clearAdjacent(M, N) :: hasClearSurroundings(M, N) & adjacent(M, N, X, Y) & cell(X, Y, b, Z) ==> reveal(X, Y)
-
-    legal(M,N) :- cell(M,N,b,u) | cell(M,N,mine,u) | cell(M,N,b,f) | cell(M,N,mine,f) 
-    open :- cell(M,N,b,u) | cell(M,N,b,f)
-
-    terminal :- exploded | ~open
-
-    goal(p2,"YOU WIN!") :- ~cell(M, N, b, Z) & ~exploded
-    goal(p2, "GAME OVER") :- exploded
+  cell(9, 8, b, u)
+  cell(1, 9, b, u)
+  cell(2, 9, b, u)
+  cell(3, 9, b, u)
+  cell(4, 9, b, u)
+  cell(5, 9, b, u)
+  cell(6, 9, b, u)
+  cell(7, 9, b, u)
+  cell(8, 9, b, u)
 
 
-    adjHelper(A, B) :- or(succ(A, B), succ(B, A))
-    adjacent(M, N, X, Y) :- file(X) &rank(Y) &or(adjHelper(X, M) &adjHelper(Y, N), adjHelper(X, M) &same(Y, N), same(X, M) &adjHelper(Y, N))
+  <!-- mines (currently set up in diagonal) -->
+  cell(1, 1, mine, u)
+  cell(2, 2, mine, u)
+  cell(3, 3, mine, u)
+  cell(4, 4, mine, u)
+  cell(5, 5, mine, u)
+  cell(6, 6, mine, u)
+  cell(7, 7, mine, u)
+  cell(8, 8, mine, u)
+  cell(9, 9, mine, u)
 
-    innerhtml(mark(M,N),"&#128681;") :- cell(M,N,W,Z) & same(Z, f)
-    innerhtml(mark(M,N),"&#128163;") :- terminal & cell(M,N,W,Z) & distinct(W, b)
-    innerhtml(mark(R,C), W) :- cell(R,C,W,Z) & distinct(W,b) & distinct(W, mine)
-    attribute(mark(R,C),"onclick",true) :- terminal & cell(R,C,W,Z) & distinct(W,x)
+</dataset>
+<ruleset id="library" style="display: none">
+  <!-- first click sets flag -->
+  click(mark(M,N)) :: cell(M, N, b, u) ==> ~cell(M, N, b, u) & cell(M, N, b, f)
+  click(mark(M,N)) :: cell(M, N, mine, u) ==> ~cell(M, N, mine, u) & cell(M, N, mine, f)
+  <!-- second click reveals cell -->
+  click(mark(M,N)) :: cell(M, N, b, f) ==> reveal(M, N) & clearAdjacent(M, N)
+  click(mark(M,N)) :: cell(M, N, mine, f) ==> exploded & ~cell(M, N, mine, f) & cell(M, N, "&#128163;", u)
 
-    <!-- innerhtml(curplayer,W) :- curplayer(W) innerhtml(p1result,C) :- goal(p1,C)
-    innerhtml(p2result,C) :- goal(p2,C) c(1) c(2) c(3)
-    attribute(mark(R,C),"onclick",true) :- cell(R,C,W) & distinct(W,b)
-    attribute(mark(R,C),"onclick",true) :- terminal & c(R) & c(C) -->
-    style(mark(R,C),"cursor","text") :- cell(R,C,W) & distinct(W,b) & distinct(W, mine)
-    style(mark(R,C),"cursor","text") :- exploded & cell(R, C, W, Z)
-    style(mark(R, C), color, red) :- cell(R, C, 4, Z)
-    style(mark(R, C), color, red) :- cell(R, C, 5, Z)
-    style(mark(R, C), color, red) :- cell(R, C, 6, Z)
-    style(mark(R, C), color, red) :- cell(R, C, 7, Z)
-    style(mark(R, C), color, red) :- cell(R, C, 8, Z)
-    style(mark(R, C), color, red) :- cell(R, C, 3, Z)
-    style(mark(R, C), color, tomato) :- cell(R, C, 2, Z)
-    style(mark(R, C), color, orange) :- cell(R, C, 1, Z)
-    style(mark(R, C), color, royalblue) :- cell(R, C, 0, Z)
-  </ruleset>
+  <!-- currently broken -->
+  reveal(M, N) :: cell(M, N, b, Z) & evaluate(countofall(cell(X, Y, mine, u) | cell(X, Y, mine, f), (cell(X, Y, mine, u)
+  | cell(X, Y, mine, f)) & adjacent(M, N, X, Y)), NumMines) ==> ~cell(M, N, b, f) & cell(M, N, NumMines, u)
+  hasClearSurroundings(M, N) :- evaluate(countofall(cell(X, Y, mine, u) | cell(X, Y, mine, f), (cell(X, Y, mine, u) |
+  cell(X, Y, mine, f)) & adjacent(M, N, X, Y)), 0)
+
+  adjHelper(A, B) :- or(succ(A, B), succ(B, A))
+  adjacent(M, N, X, Y) :- file(X) & rank(Y) & or(adjHelper(X, M) &adjHelper(Y, N), adjHelper(X, M) &same(Y, N), same(X,
+  M) &adjHelper(Y, N))
+  clearAdjacent(M, N) :: hasClearSurroundings(M, N) & adjacent(M, N, X, Y) & cell(X, Y, b, Z) ==> reveal(X, Y)
+
+  legal(M,N) :- cell(M,N,b,u) | cell(M,N,mine,u) | cell(M,N,b,f) | cell(M,N,mine,f)
+  open :- cell(M,N,b,u) | cell(M,N,b,f)
+
+  terminal :- exploded | ~open
+
+  goal(p2,"YOU WIN!") :- ~cell(M, N, b, Z) & ~exploded
+  goal(p2, "GAME OVER") :- exploded
+
+
+  adjHelper(A, B) :- or(succ(A, B), succ(B, A))
+  adjacent(M, N, X, Y) :- file(X) &rank(Y) &or(adjHelper(X, M) &adjHelper(Y, N), adjHelper(X, M) &same(Y, N), same(X, M)
+  &adjHelper(Y, N))
+
+  innerhtml(mark(M,N),"&#128681;") :- cell(M,N,W,Z) & same(Z, f)
+  innerhtml(mark(M,N),"&#128163;") :- terminal & cell(M,N,W,Z) & distinct(W, b)
+  innerhtml(mark(R,C), W) :- cell(R,C,W,Z) & distinct(W,b) & distinct(W, mine)
+  attribute(mark(R,C),"onclick",true) :- terminal & cell(R,C,W,Z) & distinct(W,x)
+  innerhtml(p2result,C) :- goal(p2,C)
+  style(mark(R,C),"cursor","text") :- cell(R,C,W) & distinct(W,b) & distinct(W, mine)
+  style(mark(R,C),"cursor","text") :- exploded & cell(R, C, W, Z)
+  style(mark(R, C), color, red) :- cell(R, C, 4, Z)
+  style(mark(R, C), color, red) :- cell(R, C, 5, Z)
+  style(mark(R, C), color, red) :- cell(R, C, 6, Z)
+  style(mark(R, C), color, red) :- cell(R, C, 7, Z)
+  style(mark(R, C), color, red) :- cell(R, C, 8, Z)
+  style(mark(R, C), color, red) :- cell(R, C, 3, Z)
+  style(mark(R, C), color, tomato) :- cell(R, C, 2, Z)
+  style(mark(R, C), color, orange) :- cell(R, C, 1, Z)
+  style(mark(R, C), color, royalblue) :- cell(R, C, 0, Z)
+</ruleset>
+
 </html>
