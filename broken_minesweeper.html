@@ -921,13 +921,13 @@ cell(9, 9, mine, u)
 
   click(mark(M,N)) :: cell(M, N, Z, u) & flagging ==> ~cell(M, N, Z, u) & cell(M, N, Z, f)
   click(mark(M,N)) :: cell(M, N, Z, f) & flagging ==> ~cell(M, N, Z, f) & cell(M, N, Z, u)
-  <!-- second click reveals cell -->
+
   click(mark(M,N)) :: cell(M, N, b, Z) & ~flagging ==> reveal(M, N) & clearAdjacent(M, N)
-  click(mark(M,N)) :: cell(M, N, mine, Z)   & ~flagging ==> exploded & ~cell(M, N, mine, f) & cell(M, N, "&#128163;", u)
+  click(mark(M,N)) :: cell(M, N, mine, Z)  & ~flagging ==> exploded & ~cell(M, N, mine, f) & cell(M, N, "&#128163;", u)
 
   <!-- currently broken -->
   reveal(M, N) :: cell(M, N, b, Z) & evaluate(countofall(cell(X, Y, mine, u) | cell(X, Y, mine, f), (cell(X, Y, mine, u)
-  | cell(X, Y, mine, f)) & adjacent(M, N, X, Y)), NumMines) ==> ~cell(M, N, b, f) & cell(M, N, NumMines, u)
+  | cell(X, Y, mine, f)) & adjacent(M, N, X, Y)), NumMines) ==> ~cell(M, N, b, f) & ~cell(M, N, b, u) & cell(M, N, NumMines, u)
   hasClearSurroundings(M, N) :- evaluate(countofall(cell(X, Y, mine, u) | cell(X, Y, mine, f), (cell(X, Y, mine, u) |
   cell(X, Y, mine, f)) & adjacent(M, N, X, Y)), 0)
 
@@ -941,7 +941,7 @@ cell(9, 9, mine, u)
 
   terminal :- exploded | ~open
 
-  goal(p2,"YOU WIN!") :- ~cell(M, N, b, u) & ~cell(M, N, b, f) & ~exploded
+  goal(p2,"YOU WIN!") :- ~open & ~exploded
   goal(p2, "GAME OVER") :- exploded
 
 
@@ -969,3 +969,4 @@ cell(9, 9, mine, u)
 </ruleset>
 
 </html>
+
