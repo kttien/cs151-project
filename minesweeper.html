@@ -928,7 +928,7 @@ cell(9, 9, mine, u)
   M) &adjHelper(Y, N))
   clearAdjacent(M, N) :: hasClearSurroundings(M, N) & adjacent(M, N, X, Y) & cell(X, Y, b, Z) ==> reveal(X, Y)
 
-  legal(M,N) :- cell(M,N,b,Z)
+  legal(M,N) :- cell(M,N,b,Z) | cell(M,N,mine,Z)
   open :- cell(M,N,b,Z)
 
   terminal :- exploded | ~open
